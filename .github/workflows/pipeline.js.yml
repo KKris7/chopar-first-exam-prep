@@ -1,4 +1,4 @@
-name: Build and Test Shopping List
+name: Build Test and Deploy Shopping List
 on:
   push:
     branches: [ "main" ]
@@ -44,3 +44,13 @@ jobs:
               run: npm start &
             - name: Run the UI tests
               run: npm run test:ui
+
+  deploy:
+    needs: RunUiTests
+    runs-on: ubuntu-latest  
+    steps:
+        - name: Deploy to production
+          uses: johnbeynon/render-deploy-action@v0.0.8
+          with:
+              service-id: ${{ secrets.FIRST_EXAM_PREP_SERVICE }}
+              api-key: ${{ secrets.FIRST_EXAM_PREP_TOKEN }}
