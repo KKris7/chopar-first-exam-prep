@@ -22,5 +22,5 @@ jobs:
         run: npm start &
       - name: Run the unit tests
         run: npm run test:unit
-      - name: Display softuni username
+      - name: Chopar
         run: echo "chopar"
