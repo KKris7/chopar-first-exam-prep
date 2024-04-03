@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 jobs:
-  test:
+  buildAndTest:
     runs-on: ubuntu-latest  
     steps:
       - name: Checkout Repo
@@ -22,3 +22,5 @@ jobs:
         run: npm start &
       - name: Run the unit tests
         run: npm run test:unit
+      - name: Display softuni username
+        run: echo "chopar"
